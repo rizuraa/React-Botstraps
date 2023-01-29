@@ -9,7 +9,7 @@ function Hero() {
     
     useEffect(()=>{
         axios
-        .get("https://19104008-mhs.bdv.or.id/api/heroes.php")
+        .get("https://indonesia-public-static-api.vercel.app/api/heroes")
         .then(res => {console.log(res)
                     setData(res.data)
                     setOriginalData(res.data)})
@@ -54,8 +54,13 @@ function Hero() {
             </p>
             <div>
                 <Form onSubmit={handleSubmit}>
-                    <Form.Control sz="sm" type="text" placeholder="Search by name" onChange={handleChange} value={searchTerm} />
-                    <br/>
+                    <Form.Control sz="sm" type="text" placeholder="Search by name" onChange={handleChange} value={searchTerm}/>                                     
+                    <br/>   
+                    {/* <Form.Select>
+                    {data.map((item, index) => (
+                       <option>{item.name} - {item.death_year}</option>                        
+                    ))}                        
+                    </Form.Select>                  */}
                     {/* <Stack direction='horizontal' gap={3}>
                         <Button type="submit">Search</Button>                    
                         <Button type="reset" onClick={handleReset}>Reset</Button>
